@@ -1,11 +1,15 @@
+"""
+统计单词的个数
+"""
 import numpy as np
 nums={}
 
-with open("我被迫挖了邪神的墙脚.txt", "r") as f:
+with open("News.txt", "r") as f:
     lines=f.readlines()
 
 for line in lines:
-    for word in line:
+    words = line.strip().split()
+    for word in words:
         if word in nums:
             nums[word]+=1
         else:
