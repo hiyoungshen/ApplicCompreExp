@@ -4,13 +4,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def calCurve(theta=np.pi / 6, v0=100, k=0.3):
+def calCurve(theta=np.pi / 6, v0=1000, k=0.3):
     eps = 0.000000001
 
     t_interval = 0.0001
     p = np.array([0, 0], dtype=np.float32)
     v = np.array([v0 * np.cos(theta), v0 * np.sin(theta)], dtype=np.float32)
-    m = 1
+    m = 30
     f = -k * v ** 2
     g = np.array([0, -9.8], dtype=np.float32)
 
@@ -19,7 +19,7 @@ def calCurve(theta=np.pi / 6, v0=100, k=0.3):
 
     while p[1] >= -eps:
         # print(f, g)
-        a = f + g
+        a = f / m + g
         v = v + a * t_interval
         p = p + v * t_interval
         xs.append(p[0])
@@ -49,3 +49,11 @@ if __name__ == "__main__":
     ax.set_xlabel("x axis, (m)")
     ax.set_ylabel("y axis, (m)")
     fig.savefig("Parabola curve.png")
+
+    max_xs = 0
+    # print(np.arange(2*np.pi/360, np.pi/2, 2*np.pi/360))
+    for theta in np.arange(2*np.pi/360, np.pi/2, 2*np.pi/360):
+        xs, ys = calCurve(theta=theta)
+        max_xs = max(xs[-1], max_xs)
+    print(f"最大的轨迹长度是{max_xs}")
+
