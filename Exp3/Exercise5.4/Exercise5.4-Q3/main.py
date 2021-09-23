@@ -8,10 +8,12 @@ def calCurve(theta=np.pi / 6, v0=1000, k=0.3):
     eps = 0.000000001
 
     t_interval = 0.0001
+    # t_interval = 10
     p = np.array([0, 0], dtype=np.float32)
     v = np.array([v0 * np.cos(theta), v0 * np.sin(theta)], dtype=np.float32)
     m = 30
     f = -k * v ** 2
+    # f=np.array([0, 0])
     g = np.array([0, -9.8], dtype=np.float32)
 
     fig = plt.figure()

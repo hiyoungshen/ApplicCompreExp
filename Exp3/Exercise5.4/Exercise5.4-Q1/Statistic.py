@@ -1,8 +1,25 @@
+# import os
+
+# f = open("News.txt", 'r', encoding='UTF-8')
+# l = f.read()
+
+# # 移除标点符号
+# for ch in '-,*.\n':
+#     l = l.replace(ch, " ")
+
+# words = l.split()
+# freq = {}
+
+# for w in words:
+#     freq[w] = freq.get(w, 0) + 1
+
+# print(freq)
 """
 统计单词的个数, 并绘制，柱状图，散点图，折线图
 由于单词太多，绘制出的单词的数目过多
 """
 import numpy as np
+import re
 nums={}
 
 with open("News.txt", "r") as f:
@@ -11,6 +28,12 @@ with open("News.txt", "r") as f:
 for line in lines:
     words = line.strip().split()
     for word in words:
+        old_word=re.findall("[a-zA-Z]+", word)
+        word=""
+        for w in old_word:
+            word+=w
+        if word=="":
+            continue
         if word in nums:
             nums[word]+=1
         else:
@@ -32,7 +55,7 @@ for name, value in nums.items():
     names.append(name)
     values.append(value)
 # 随机消失一些名字
-names = [name if i%20==0 else '' for i, name in enumerate(names)]
+# names = [name if i%20==0 else '' for i, name in enumerate(names)]
 
 import matplotlib.pyplot as plt
 # plt.figure(figsize=(9, 3))
@@ -45,13 +68,15 @@ ax=plt.gca()
 ax.xaxis.set_major_locator(x_major_locator)
 #把x轴的主刻度设置为1的倍数
 ax.yaxis.set_major_locator(y_major_locator)
-plt.subplot(131)
-plt.bar(names, values)
-plt.subplot(132)
-plt.scatter(names, values)
-plt.subplot(133)
-plt.plot(names, values)
-plt.suptitle('Categorical Plotting')
+plt.subplot(121)
+plt.xlabel("word")
+plt.ylabel("times")
+plt.bar(names[:10], values[:10])
+plt.subplot(122)
+plt.scatter(names[:10], values[:10])
+# plt.subplot(133)
+# plt.plot(names, values)
+# plt.suptitle('Categorical Plotting')
 
 
 plt.savefig("Statistic.png")
