@@ -1,0 +1,18 @@
+预处理之前数据: (2919, 79)
+预处理之后数据: (2919, 331)
+训练集: torch.Size([1168, 331])
+验证集: torch.Size([292, 331])
+测试集: torch.Size([1459, 331])
+2021-09-07 03:54:05.268503 Begin training...
+Epoch: 0 Train loss: 38122686895.1579 Val loss: 38163271356.6316 Train score: 7.0758 Val score: 3.9852                                     
+Epoch: 10 Train loss: 1038037318.7368 Val loss: 1018385805.4737 Train score: 0.3827 Val score: 0.3819                                      
+Epoch: 20 Train loss: 857077712.0 Val loss: 806923678.3158 Train score: 0.3708 Val score: 0.3805                                           
+Epoch: 30 Train loss: 693524754.5263 Val loss: 742923520.0 Train score: 0.3688 Val score: 0.3684                                           
+Epoch: 40 Train loss: 658152601.2632 Val loss: 607177600.0 Train score: 0.3576 Val score: 0.3624                                           
+Epoch: 50 Train loss: 623428309.0526 Val loss: 599256943.1579 Train score: 0.3814 Val score: 0.3981                                        
+Epoch: 60 Train loss: 564592442.9474 Val loss: 528400418.5263 Train score: 0.3626 Val score: 0.3903                                        
+Epoch: 70 Train loss: 509289432.4211 Val loss: 496497095.5789 Train score: 0.3623 Val score: 0.3834                                        
+Epoch: 80 Train loss: 483514639.5789 Val loss: 501987521.6842 Train score: 0.3647 Val score: 0.3508                                        
+Epoch: 90 Train loss: 461706266.9474 Val loss: 450353563.7895 Train score: 0.369 Val score: 0.3582                                         
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████| 100/100 [00:38<00:00,  2.59it/s]
+2021-09-07 03:54:43.841470 End training...
